@@ -2,6 +2,8 @@ import{cart, removeFromCart} from '../data/cart.js';
 import{products} from '../data/products.js';
 import {formatCurrency} from './utils/money.js';
 
+
+
 let cartSummaryHTML = '';
 
 cart.forEach((cartItem) => {
@@ -14,10 +16,15 @@ cart.forEach((cartItem) => {
       matchingProduct = product;
     }
   });
+  
+  /* if (!matchingProduct) {
+    console.error(`Product not found for productId: ${productId}`);
+    return;
+  }
+ */
 
 cartSummaryHTML += `
-<div class="cart-item-container 
-  js-cart-item-container-${matchingProduct.id}">
+<div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
   <div class="delivery-date">
     Delivery date: Tuesday, June 21
   </div>
